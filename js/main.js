@@ -441,7 +441,7 @@
       }
     }
 
-    // Ручное вращение: перетаскивание мышью/пальцем с инерцией, стрелки, клик по иконке
+    // Ручное вращение: перетаскивание мышью/пальцем с инерцией, клик по иконке
     let manual = 0;     // сколько градусов накрутил пользователь
     let velocity = 0;   // градусов за кадр — для инерции после отпускания
     let dragging = false;
@@ -496,9 +496,6 @@
     };
     stage.addEventListener('pointerup', endDrag);
     stage.addEventListener('pointercancel', endDrag);
-
-    $('orbit-prev').addEventListener('click', () => nudge(step));
-    $('orbit-next').addEventListener('click', () => nudge(-step));
 
     // Угол = прокрутка страницы + лёгкий дрейф + ручное вращение; сглаживание даёт «инерцию»
     function loop(now) {
