@@ -442,6 +442,8 @@
     let running = false;
     let lastTime = 0;
     let drift = 0;
+    let scrollAngle = 0;
+    let lastScrollY = window.scrollY;
 
     function measure() {
       const w = stage.clientWidth;
@@ -545,7 +547,14 @@
         if (Math.abs(velocity) < 0.01) velocity = 0;
         if (velocity === 0) drift += dt * 0.006; // дрейф стоит, пока кольцо крутят руками
       }
-      target = -window.scrollY * 0.28 - drift + manual;
+      // вклад прокрутки ограничен по скорости: при резком пролистывании кольцо
+      // крутится не быстрее ~150°/с, а лишний поворот не копится
+      const scrollY = window.scrollY;
+      const maxStep = 2.5 * (dt / 16.7);
+      const step = Math.max(-maxStep, Math.min(maxStep, -(scrollY - lastScrollY) * 0.28));
+      scrollAngle += step;
+      lastScrollY = scrollY;
+      target = scrollAngle - drift + manual;
       current += (target - current) * (dragging ? 0.35 : 0.09);
       render();
       requestAnimationFrame(loop);
@@ -553,7 +562,8 @@
 
     function setRunning(on) {
       if (reducedMotion) return;
-      if (on && !running) { running = true; lastTime = 0; requestAnimationFrame(loop); }
+      // при появлении на экране начинаем отсчёт прокрутки заново — без рывка за пролистанный путь
+      if (on && !running) { running = true; lastTime = 0; lastScrollY = window.scrollY; requestAnimationFrame(loop); }
       if (!on) running = false;
     }
 
