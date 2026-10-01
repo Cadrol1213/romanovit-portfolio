@@ -410,9 +410,6 @@ a { color: inherit; }
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
   line-height: 1.3;
 }
-.notif-head { display: flex; align-items: center; gap: 7px; margin-bottom: 5px; }
-.notif-name { font-size: 12px; letter-spacing: .02em; text-transform: uppercase; color: #98989F; }
-.notif-time { margin-left: auto; font-size: 12px; color: #8E8E93; }
 .notif-title { font-size: 15px; font-weight: 600; letter-spacing: -.01em; }
 .notif-body { font-size: 14px; color: rgba(235, 235, 245, .7); }
 .notif-mono { font-variant-numeric: tabular-nums; }
@@ -534,7 +531,7 @@ a { color: inherit; }
   text-transform: uppercase;
   letter-spacing: .03em;
   cursor: pointer;
-  transition: color .2s, background-color .2s, border-color .2s;
+  transition: color .35s ease, background-color .35s ease, border-color .35s ease;
   touch-action: manipulation;
 }
 .chip:hover { color: var(--fg); border-color: var(--fg); }
@@ -568,12 +565,12 @@ a { color: inherit; }
   content: '';
   position: absolute;
   inset: 0;
-  border: 1px solid var(--line);
   border-radius: inherit;
+  box-shadow: inset 0 0 0 1px var(--line);
   pointer-events: none;
-  transition: border-color .25s, border-width .25s;
+  transition: box-shadow .45s ease;
 }
-.tile:hover::after { border: 2px solid var(--accent-text); }
+.tile:hover::after { box-shadow: inset 0 0 0 2px var(--accent-text); }
 
 .tile-media {
   display: block;
@@ -702,15 +699,15 @@ a { color: inherit; }
   gap: 16px;
   padding: 28px 0;
   border-bottom: 1px solid var(--line);
-  transition: padding-left .4s var(--ease-out);
 }
-.service:hover { padding-left: 12px; }
+.service > * { transition: transform .6s cubic-bezier(.22, 1, .36, 1); }
+.service:hover > * { transform: translateX(12px); }
 .service-num { font-size: 13px; color: var(--accent-soft); padding-top: 8px; }
 .service h3 {
   font: 800 clamp(26px, 2.6vw, 34px)/1.05 var(--font-display);
   text-transform: uppercase;
   margin-bottom: 8px;
-  transition: color .25s;
+  transition: color .4s ease;
 }
 .service:hover h3 { color: var(--accent-text); }
 .service p { color: var(--muted); }
