@@ -55,6 +55,9 @@
     applyLang();
   });
 
+  // иконки приложений в уведомлениях вокруг телефона
+  document.querySelectorAll('[data-logo]').forEach((el) => { el.innerHTML = LOGOS[el.dataset.logo] || ''; });
+
   // =============== Шапка ===============
   const header = $('header');
   const onScrollHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 40);
