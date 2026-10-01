@@ -95,9 +95,12 @@ for (const entry of content.items) {
 
   if (!isFresh(paths.full, src)) {
     console.log('   сжимаю полную версию…');
+    // длинные ролики (> 3 мин) — в 720p, чтобы файл влез в лимит GitHub (100 МБ)
+    const long = meta.duration > 180;
     run('ffmpeg', ['-v', 'error', '-y', '-i', src,
-      '-vf', scaleShort(1080),
-      '-c:v', 'libx264', '-preset', 'fast', '-crf', '24', '-maxrate', '5M', '-bufsize', '10M',
+      '-vf', scaleShort(long ? 720 : 1080),
+      '-c:v', 'libx264', '-preset', 'fast', '-crf', long ? '26' : '24',
+      '-maxrate', long ? '2M' : '5M', '-bufsize', long ? '4M' : '10M',
       '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '128k',
       '-movflags', '+faststart', paths.full]);
   }
