@@ -159,7 +159,7 @@ const worksList = '<ul class="works-static">' + items.map((it) =>
 html = html.replace(/<!-- build:works -->[\s\S]*?<!-- \/build:works -->/, `<!-- build:works -->${worksList}<!-- /build:works -->`);
 
 // 3. Микроразметка schema.org: исполнитель, услуги с ценами, вопросы-ответы, видео
-const PRICE_RUB = [1500, 4000, 3000, 3000, 8000, 2000]; // в том же порядке, что prices.1…6 в i18n.js
+const PRICE_RUB = [500, 1000, 500, 500, 1500, 500]; // в том же порядке, что prices.1…6 в i18n.js
 const faq = [];
 for (let n = 1; RU[`faq.${n}.q`]; n++) faq.push({ q: RU[`faq.${n}.q`], a: RU[`faq.${n}.a`] });
 const graph = [
