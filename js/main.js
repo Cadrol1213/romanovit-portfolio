@@ -46,6 +46,7 @@
     renderGrid();
     orbit.relabel();
     phone.relabel();
+    contact.render();
     if (lbIndex >= 0) fillCaption(visible[lbIndex]);
   }
 
@@ -570,6 +571,50 @@
 
     place();
     return { measure, relabel, render };
+  })();
+
+  // =============== Окно «Связаться» ===============
+  const contact = (() => {
+    const dialog = $('contact-dialog');
+    const list = $('contact-list');
+    const links = window.CONTACTS || {};
+    const BUBBLE = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.8 2 11.5c0 2.6 1.4 4.9 3.6 6.5L5 22l4.4-2.3c.8.2 1.7.3 2.6.3 5.5 0 10-3.8 10-8.5S17.5 3 12 3z"/></svg>';
+    const ARROW = '<svg class="cd-arrow icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>';
+    // full — иконка сама является «плашкой» с вырезом, knock — цвет в вырезе
+    const ITEMS = [
+      { key: 'max', name: 'MAX', icon: BUBBLE, style: '--icon-bg:linear-gradient(135deg,#2B7CFF,#8B3DFF);--icon-fg:#fff' },
+      { key: 'telegram', name: 'Telegram', icon: LOGOS.telegram, full: true, round: true, style: '--icon-fg:#26A5E4;--icon-knock:#fff' },
+      { key: 'vk', name: 'ВКонтакте', nameEn: 'VK', icon: LOGOS.vk, full: true, style: '--icon-fg:#0077FF;--icon-knock:#fff' },
+      { key: 'kwork', name: 'Kwork', text: 'kw', style: '--icon-bg:#fff;--icon-fg:#111' },
+    ];
+
+    function render() {
+      list.innerHTML = ITEMS.map((it) => {
+        const href = links[it.key];
+        const name = lang === 'en' && it.nameEn ? it.nameEn : it.name;
+        const icon =
+          `<span class="cd-icon ${it.full ? 'cd-icon-full' : ''} ${it.round ? 'cd-icon-round' : ''}" style="${it.style}">` +
+          (it.full ? '<span class="cd-icon-knock"></span>' : '') +
+          (it.text ? `<span class="cd-icon-text">${it.text}</span>` : it.icon) +
+          '</span>';
+        const body = `${icon}<span class="cd-text"><b>${name}</b><small>${href ? t('contact.' + it.key) : t('contact.soon')}</small></span>`;
+        return href
+          ? `<li><a class="cd-item" href="${href}" target="_blank" rel="noopener">${body}${ARROW}</a></li>`
+          : `<li><span class="cd-item is-disabled" aria-disabled="true">${body}</span></li>`;
+      }).join('');
+    }
+
+    function open() {
+      pauseGrid();
+      phone.pause();
+      dialog.showModal();
+    }
+    dialog.addEventListener('close', () => { resumeGrid(); phone.resume(); });
+    // клик по затемнению вокруг окна — закрыть
+    dialog.addEventListener('click', (e) => { if (e.target === dialog || e.target.closest('[data-cd-close]')) dialog.close(); });
+    document.querySelectorAll('[data-contact]').forEach((btn) => btn.addEventListener('click', open));
+
+    return { render };
   })();
 
   // =============== Лайтбокс ===============

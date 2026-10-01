@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Onest:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="css/style.css?v=202610012033">
+  <link rel="stylesheet" href="css/style.css?v=202610012048">
 </head>
 <body>
   <a class="skip-link" href="#works" data-i18n="skip">К работам</a>
@@ -27,10 +27,10 @@
       </nav>
       <div class="header-actions">
         <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Switch to English">EN</button>
-        <a class="btn btn-accent btn-small" href="https://kwork.ru/user/romanovit" target="_blank" rel="noopener">
+        <button class="btn btn-accent btn-small" type="button" data-contact aria-haspopup="dialog">
           <span data-i18n="cta.short">Заказать</span>
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-        </a>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>
+        </button>
       </div>
     </div>
   </header>
@@ -49,10 +49,10 @@
             </h1>
             <p class="hero-lead" data-i18n="hero.lead">Рилсы, TikTok и длинные ролики для YouTube — с хуком в первые секунды и подводкой к действию. Для русского и американского рынка.</p>
             <div class="hero-cta">
-              <a class="btn btn-accent" href="https://kwork.ru/user/romanovit" target="_blank" rel="noopener">
-                <span data-i18n="cta.order">Заказать на Kwork</span>
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-              </a>
+              <button class="btn btn-accent" type="button" data-contact aria-haspopup="dialog">
+                <span data-i18n="cta.order">Заказать</span>
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>
+              </button>
               <a class="btn btn-outline" href="#works">
                 <span data-i18n="cta.works">Смотреть работы</span>
                 <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
@@ -207,11 +207,11 @@
           <span class="hero-accent" data-i18n="contacts.line2">который досмотрят?</span>
         </h2>
         <div class="contacts-row" data-reveal>
-          <p data-i18n="contacts.text">Напишите на Kwork — обсудим задачу, сроки и стоимость.</p>
-          <a class="btn btn-accent btn-large" href="https://kwork.ru/user/romanovit" target="_blank" rel="noopener">
-            <span data-i18n="contacts.cta">Написать на Kwork</span>
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-          </a>
+          <p data-i18n="contacts.text">Напишите в удобный мессенджер — обсудим задачу, сроки и стоимость.</p>
+          <button class="btn btn-accent btn-large" type="button" data-contact aria-haspopup="dialog">
+            <span data-i18n="contacts.cta">Напишите нам</span>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>
+          </button>
         </div>
       </div>
     </section>
@@ -223,6 +223,19 @@
       <a href="https://kwork.ru/user/romanovit" target="_blank" rel="noopener">kwork.ru/user/romanovit ↗</a>
     </div>
   </footer>
+
+  <!-- ============ Окно «Связаться» ============ -->
+  <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-title">
+    <div class="cd-inner">
+      <button class="cd-close" type="button" data-cd-close data-i18n-label="lb.close" aria-label="Закрыть">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+      <p class="kicker mono" data-i18n="contact.kicker">// Связаться</p>
+      <h2 class="cd-title" id="contact-title" data-i18n="contact.title">Где удобнее написать?</h2>
+      <p class="cd-sub" data-i18n="contact.sub">Расскажите о задаче — обсудим формат, сроки и стоимость.</p>
+      <ul class="cd-list" id="contact-list"></ul>
+    </div>
+  </dialog>
 
   <!-- ============ Лайтбокс ============ -->
   <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-labelledby="lb-title">
@@ -244,9 +257,10 @@
     </button>
   </div>
 
-  <script src="js/videos.js?v=202610012033"></script>
-  <script src="js/logos.js?v=202610012033"></script>
-  <script src="js/i18n.js?v=202610012033"></script>
-  <script src="js/main.js?v=202610012033"></script>
+  <script src="js/videos.js?v=202610012048"></script>
+  <script src="js/logos.js?v=202610012048"></script>
+  <script src="js/contacts.js?v=202610012048"></script>
+  <script src="js/i18n.js?v=202610012048"></script>
+  <script src="js/main.js?v=202610012048"></script>
 </body>
 </html>
