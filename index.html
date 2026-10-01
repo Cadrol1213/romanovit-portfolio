@@ -189,8 +189,17 @@
               <div class="orbit-floor" aria-hidden="true"></div>
             </div>
             <div class="orbit-caption" aria-live="polite">
-              <span class="orbit-counter mono" id="orbit-counter">01 / 09</span>
+              <div class="orbit-controls">
+                <button class="orbit-btn" id="orbit-prev" type="button" data-i18n-label="tools.prev" aria-label="Предыдущий инструмент">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <span class="orbit-counter mono" id="orbit-counter">01 / 09</span>
+                <button class="orbit-btn" id="orbit-next" type="button" data-i18n-label="tools.next" aria-label="Следующий инструмент">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+              </div>
               <span class="orbit-name" id="orbit-name">After Effects</span>
+              <span class="orbit-hint mono" data-i18n="tools.hint">← тяните, чтобы покрутить →</span>
             </div>
           </div>
         </aside>

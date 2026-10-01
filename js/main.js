@@ -441,14 +441,78 @@
       }
     }
 
-    // Угол = прокрутка страницы + лёгкий дрейф; сглаживание даёт «инерцию»
+    // Ручное вращение: перетаскивание мышью/пальцем с инерцией, стрелки, клик по иконке
+    let manual = 0;     // сколько градусов накрутил пользователь
+    let velocity = 0;   // градусов за кадр — для инерции после отпускания
+    let dragging = false;
+    let dragMoved = 0;
+    let lastX = 0;
+    let lastMoveTime = 0;
+    const DEG_PER_PX = 0.4;
+
+    function nudge(deg) {
+      manual += deg;
+      velocity = 0;
+      if (reducedMotion) { current = manual; render(); }
+    }
+
+    stage.addEventListener('pointerdown', (e) => {
+      if (e.button !== 0) return;
+      dragging = true;
+      dragMoved = 0;
+      velocity = 0;
+      lastX = e.clientX;
+      lastMoveTime = performance.now();
+      try { stage.setPointerCapture(e.pointerId); } catch (err) { /* синтетические события без реального указателя */ }
+      stage.classList.add('is-dragging');
+    });
+    stage.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
+      const now = performance.now();
+      const delta = (e.clientX - lastX) * DEG_PER_PX;
+      const dt = Math.max(1, now - lastMoveTime);
+      manual += delta;
+      velocity = (delta / dt) * 16; // ≈ градусов за кадр при 60 fps
+      dragMoved += Math.abs(e.clientX - lastX);
+      lastX = e.clientX;
+      lastMoveTime = now;
+      if (reducedMotion) { current = manual; render(); }
+    });
+    const endDrag = (e) => {
+      if (!dragging) return;
+      dragging = false;
+      stage.classList.remove('is-dragging');
+      // если палец долго стоял на месте перед отпусканием — без броска
+      if (performance.now() - lastMoveTime > 80) velocity = 0;
+      // короткий клик по иконке — повернуть её вперёд
+      if (dragMoved < 6) {
+        const item = document.elementFromPoint(e.clientX, e.clientY)?.closest('.orbit-item');
+        const i = nodes.indexOf(item);
+        if (i >= 0) {
+          const angle = ((i * step + current) % 360 + 540) % 360 - 180; // −180…180
+          nudge(-angle);
+        }
+      }
+    };
+    stage.addEventListener('pointerup', endDrag);
+    stage.addEventListener('pointercancel', endDrag);
+
+    $('orbit-prev').addEventListener('click', () => nudge(step));
+    $('orbit-next').addEventListener('click', () => nudge(-step));
+
+    // Угол = прокрутка страницы + лёгкий дрейф + ручное вращение; сглаживание даёт «инерцию»
     function loop(now) {
       if (!running) return;
       const dt = Math.min(64, now - (lastTime || now));
       lastTime = now;
-      drift += dt * 0.006;
-      target = -window.scrollY * 0.28 - drift;
-      current += (target - current) * 0.09;
+      if (!dragging) {
+        manual += velocity;
+        velocity *= 0.94;
+        if (Math.abs(velocity) < 0.01) velocity = 0;
+        if (velocity === 0) drift += dt * 0.006; // дрейф стоит, пока кольцо крутят руками
+      }
+      target = -window.scrollY * 0.28 - drift + manual;
+      current += (target - current) * (dragging ? 0.35 : 0.09);
       render();
       requestAnimationFrame(loop);
     }
