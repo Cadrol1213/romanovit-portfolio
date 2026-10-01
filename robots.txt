@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cadrol1213.github.io/romanovit-portfolio/sitemap.xml
+Sitemap: https://romanovit.ru/sitemap.xml

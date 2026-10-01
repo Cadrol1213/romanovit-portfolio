@@ -23,7 +23,7 @@ const OUT = {
   poster: join(ROOT, 'media/poster'),
 };
 // Адрес сайта — поменять здесь, когда подключите свой домен
-const SITE_URL = 'https://cadrol1213.github.io/romanovit-portfolio/';
+const SITE_URL = 'https://romanovit.ru/';
 const FORCE = process.argv.includes('--force');
 const PREVIEW_SECONDS = 5;
 
