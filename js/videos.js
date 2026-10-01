@@ -83,6 +83,22 @@ window.PORTFOLIO = [
     "poster": "media/poster/p3-burnout.jpg"
   },
   {
+    "id": "img-8947",
+    "category": "ai",
+    "tags": [],
+    "market": "us",
+    "title": {
+      "ru": "ИИ-видео: детейлинг Porsche 911",
+      "en": "AI video: Porsche 911 detailing"
+    },
+    "width": 464,
+    "height": 848,
+    "duration": 66,
+    "full": "media/full/img-8947.mp4",
+    "preview": "media/preview/img-8947.mp4",
+    "poster": "media/poster/img-8947.jpg"
+  },
+  {
     "id": "trading-5min",
     "category": "youtube",
     "tags": [
@@ -99,6 +115,22 @@ window.PORTFOLIO = [
     "full": "media/full/trading-5min.mp4",
     "preview": "media/preview/trading-5min.mp4",
     "poster": "media/poster/trading-5min.jpg"
+  },
+  {
+    "id": "img-8944",
+    "category": "3d",
+    "tags": [],
+    "market": null,
+    "title": {
+      "ru": "3D-анимация производственной линии",
+      "en": "3D production line animation"
+    },
+    "width": 848,
+    "height": 464,
+    "duration": 21,
+    "full": "media/full/img-8944.mp4",
+    "preview": "media/preview/img-8944.mp4",
+    "poster": "media/poster/img-8944.jpg"
   },
   {
     "id": "portfolio1",
@@ -133,6 +165,22 @@ window.PORTFOLIO = [
     "full": "media/full/reels3-sayt.mp4",
     "preview": "media/preview/reels3-sayt.mp4",
     "poster": "media/poster/reels3-sayt.jpg"
+  },
+  {
+    "id": "img-8948",
+    "category": "ai",
+    "tags": [],
+    "market": "us",
+    "title": {
+      "ru": "ИИ-видео: восстановление BMW M4",
+      "en": "AI video: BMW M4 rebuild"
+    },
+    "width": 464,
+    "height": 848,
+    "duration": 43,
+    "full": "media/full/img-8948.mp4",
+    "preview": "media/preview/img-8948.mp4",
+    "poster": "media/poster/img-8948.jpg"
   },
   {
     "id": "edit3",
@@ -185,6 +233,22 @@ window.PORTFOLIO = [
     "poster": "media/poster/p6-rodstvenniki.jpg"
   },
   {
+    "id": "img-8950",
+    "category": "ai",
+    "tags": [],
+    "market": "us",
+    "title": {
+      "ru": "ИИ-видео: заброшенная пожарная часть",
+      "en": "AI video: abandoned fire station"
+    },
+    "width": 464,
+    "height": 848,
+    "duration": 51,
+    "full": "media/full/img-8950.mp4",
+    "preview": "media/preview/img-8950.mp4",
+    "poster": "media/poster/img-8950.jpg"
+  },
+  {
     "id": "p4-local-business",
     "category": "reels",
     "tags": [],
@@ -231,6 +295,22 @@ window.PORTFOLIO = [
     "full": "media/full/reels2-obuv.mp4",
     "preview": "media/preview/reels2-obuv.mp4",
     "poster": "media/poster/reels2-obuv.jpg"
+  },
+  {
+    "id": "img-8949",
+    "category": "ai",
+    "tags": [],
+    "market": "us",
+    "title": {
+      "ru": "ИИ-видео: детейлинг Dodge Challenger",
+      "en": "AI video: Dodge Challenger detailing"
+    },
+    "width": 464,
+    "height": 848,
+    "duration": 50,
+    "full": "media/full/img-8949.mp4",
+    "preview": "media/preview/img-8949.mp4",
+    "poster": "media/poster/img-8949.jpg"
   },
   {
     "id": "tech-launch-full",

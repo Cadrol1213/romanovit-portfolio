@@ -56,8 +56,8 @@ function probe(file) {
   };
 }
 
-// Масштаб по короткой стороне: работает и для 16:9, и для 9:16
-const scaleShort = (px) => `scale='if(gt(iw,ih),-2,${px})':'if(gt(iw,ih),${px},-2)'`;
+// Масштаб по короткой стороне (для 16:9 и 9:16); маленькие видео не растягиваем
+const scaleShort = (px) => `scale='if(gt(iw,ih),-2,min(${px},iw))':'if(gt(iw,ih),min(${px},ih),-2)'`;
 
 const isFresh = (out, src) => !FORCE && existsSync(out) && statSync(out).mtimeMs > statSync(src).mtimeMs;
 
