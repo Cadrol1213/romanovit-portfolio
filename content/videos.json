@@ -1,0 +1,21 @@
+{
+  "_help": "Список работ. Порядок здесь = порядок в сетке. file — имя файла в папке «для сайта». category: reels | youtube | edits | ai. tags: 2d, 3d (доп. фильтры). previewStart — с какой секунды резать превью (необязательно). После правок запустите: node scripts/build.mjs",
+  "items": [
+    { "file": "p1_legal.mp4",          "category": "reels",   "tags": [],     "market": "us", "title": { "ru": "Юридическая фирма — рекламный ролик", "en": "Law firm — ad reel" } },
+    { "file": "p7_trillion.mp4",       "category": "youtube", "tags": [],     "market": "us", "title": { "ru": "Стратегия на триллион", "en": "The trillion-dollar strategy" } },
+    { "file": "p5_podcast_ai.mp4",     "category": "reels",   "tags": ["3d"], "market": "us", "title": { "ru": "Клип из подкаста про ИИ", "en": "AI podcast clip" } },
+    { "file": "edit2.mp4",             "category": "edits",   "tags": [],                     "title": { "ru": "Горнолыжный эдит", "en": "Ski edit" } },
+    { "file": "p3_burnout.mp4",        "category": "reels",   "tags": [],     "market": "us", "title": { "ru": "История выгорания", "en": "Burnout story" } },
+    { "file": "trading_5min.mp4",      "category": "youtube", "tags": ["2d"],                 "title": { "ru": "Трейдинг: как видят рынок профи", "en": "Trading explainer" } },
+    { "file": "портфолио1.mp4",        "category": "reels",   "tags": ["2d"], "market": "us", "title": { "ru": "Почему нет охватов", "en": "Why your reels get no views" } },
+    { "file": "reels3_сайт.mp4",       "category": "reels",   "tags": [],                     "title": { "ru": "5 элементов продающего сайта", "en": "5 elements of a selling website" } },
+    { "file": "edit3.mp4",             "category": "edits",   "tags": [],                     "title": { "ru": "Фрирайд эдит", "en": "Freeride edit" } },
+    { "file": "p2_hiring.mp4",         "category": "reels",   "tags": [],     "market": "us", "title": { "ru": "Контент-агентство — найм", "en": "Content agency — hiring" } },
+    { "file": "p6_родственники.mp4",   "category": "youtube", "tags": ["2d"],                 "title": { "ru": "Подкаст: отношения с родственниками", "en": "Podcast: family relationships" } },
+    { "file": "p4_local_business.mp4", "category": "reels",   "tags": [],     "market": "us", "title": { "ru": "Система для локального бизнеса", "en": "Local business system" } },
+    { "file": "video5_дом.mp4",        "category": "youtube", "tags": [],                     "title": { "ru": "Обзор дома 550 м²", "en": "550 m² house tour" } },
+    { "file": "reels2_обувь.mp4",      "category": "reels",   "tags": [],                     "title": { "ru": "Химчистка обуви", "en": "Shoe cleaning service" } },
+    { "file": "tech_launch_full.mp4",  "category": "youtube", "tags": [],                     "title": { "ru": "Обзор автосканера", "en": "Car diagnostic scanner review" } },
+    { "file": "edit_20s_v2.mp4",       "category": "edits",   "tags": [],                     "title": { "ru": "Эдит за 20 секунд", "en": "20-second edit" } }
+  ]
+}

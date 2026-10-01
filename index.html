@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RomanovIT — монтаж, который досматривают</title>
+  <meta name="description" content="Монтаж Reels, TikTok и YouTube на удержание внимания, 2D/3D-анимация, ИИ-видео, эдиты.">
+  <meta name="theme-color" content="#0A0A0B">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Onest:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#works" data-i18n="skip">К работам</a>
+
+  <!-- ============ Шапка ============ -->
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a class="logo" href="#top" aria-label="RomanovIT — наверх">
+        <span class="logo-rec" aria-hidden="true"></span>ROMANOV<span class="logo-it">IT</span>
+      </a>
+      <nav class="nav" aria-label="Навигация">
+        <a href="#works" data-i18n="nav.works">Работы</a>
+        <a href="#about" data-i18n="nav.about">Обо мне</a>
+        <a href="#contacts" data-i18n="nav.contacts">Контакты</a>
+      </nav>
+      <div class="header-actions">
+        <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Switch to English">EN</button>
+        <a class="btn btn-accent btn-small" href="https://kwork.ru/user/romanovit" target="_blank" rel="noopener">
+          <span data-i18n="cta.short">Заказать</span>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============ Первый экран: телефон, в котором при прокрутке листаются рилсы ============ -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="hero-sticky">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <p class="eyebrow mono" data-i18n="hero.eyebrow">[ Монтаж / Моушн / ИИ-видео ]</p>
+            <h1 class="hero-title" id="hero-title">
+              <span class="hero-line" data-i18n="hero.line1">Монтаж,</span>
+              <span class="hero-line" data-i18n="hero.line2">который</span>
+              <span class="hero-line hero-accent" data-i18n="hero.line3">досматривают</span>
+            </h1>
+            <p class="hero-lead" data-i18n="hero.lead">Reels, TikTok и YouTube с хуком в первые секунды, удержанием до конца и подводкой к действию. Для русского и американского рынка.</p>
+            <div class="hero-cta">
+              <a class="btn btn-accent" href="https://kwork.ru/user/romanovit" target="_blank" rel="noopener">
+                <span data-i18n="cta.order">Заказать на Kwork</span>
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+              </a>
+              <a class="btn btn-outline" href="#works">
+                <span data-i18n="cta.works">Смотреть работы</span>
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+              </a>
+            </div>
+            <div class="hero-hint mono" aria-hidden="true">
+              <span class="hint-dots" id="hint-dots"></span>
+              <span data-i18n="hero.hint">Листайте — рилсы листаются</span>
+            </div>
+          </div>
+
+          <div class="phone-scene" id="phone-scene" aria-hidden="true">
+            <div class="phone-glow"></div>
+            <div class="phone-rig" id="phone-rig">
+              <div class="phone">
+                <div class="phone-screen">
+                  <div class="feed" id="feed"></div>
+                  <div class="phone-top">
+                    <span class="phone-tab" data-i18n="phone.tab">Reels</span>
+                    <svg class="phone-cam" viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg>
+                  </div>
+                  <svg class="like-burst" id="like-burst" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.2C1.2 8.6 3.2 5 6.8 5c2 0 3.5 1.1 5.2 3 1.7-1.9 3.2-3 5.2-3 3.6 0 5.6 3.6 4.3 6.8C19.5 16.4 12 21 12 21z"/></svg>
+                </div>
+                <span class="phone-island"></span>
+              </div>
+
+              <div class="float-card card-hook">
+                <span class="mono card-kicker">00:00 → 00:03</span>
+                <strong data-i18n="card.hook">Хук</strong>
+                <span class="card-sub" data-i18n="card.hookSub">не дают пролистать</span>
+              </div>
+              <div class="float-card card-retention">
+                <span class="mono card-kicker" data-i18n="card.retention">Удержание</span>
+                <svg viewBox="0 0 160 64" class="retention-graph">
+                  <defs><linearGradient id="rg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E8B86D" stop-opacity=".35"/><stop offset="1" stop-color="#E8B86D" stop-opacity="0"/></linearGradient></defs>
+                  <path class="rg-fill" d="M0 8 C 30 10, 50 14, 80 16 S 130 20, 160 21 L160 64 L0 64 Z" fill="url(#rg)"/>
+                  <path class="rg-line" d="M0 8 C 30 10, 50 14, 80 16 S 130 20, 160 21" fill="none" stroke="#E8B86D" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="float-card card-done">
+                <svg viewBox="0 0 24 24" class="card-check"><path d="m5 12 5 5 9-10"/></svg>
+                <span data-i18n="card.done">Досмотрено до конца</span>
+              </div>
+              <div class="hearts">
+                <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.2C1.2 8.6 3.2 5 6.8 5c2 0 3.5 1.1 5.2 3 1.7-1.9 3.2-3 5.2-3 3.6 0 5.6 3.6 4.3 6.8C19.5 16.4 12 21 12 21z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.2C1.2 8.6 3.2 5 6.8 5c2 0 3.5 1.1 5.2 3 1.7-1.9 3.2-3 5.2-3 3.6 0 5.6 3.6 4.3 6.8C19.5 16.4 12 21 12 21z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.2C1.2 8.6 3.2 5 6.8 5c2 0 3.5 1.1 5.2 3 1.7-1.9 3.2-3 5.2-3 3.6 0 5.6 3.6 4.3 6.8C19.5 16.4 12 21 12 21z"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Бегущие ленты ============ -->
+    <div class="tapes" aria-hidden="true">
+      <div class="tape tape-back"><div class="tape-track" data-tape></div></div>
+      <div class="tape tape-front"><div class="tape-track" data-tape></div></div>
+    </div>
+
+    <!-- ============ Работы ============ -->
+    <section class="works container" id="works" aria-labelledby="works-title">
+      <div class="section-head" data-reveal>
+        <h2 class="section-title" id="works-title">
+          <span data-i18n="works.title">Работы</span><sup class="section-count mono" id="works-count"></sup>
+        </h2>
+        <div class="filters" id="filters" role="group" aria-label="Фильтр по категориям"></div>
+      </div>
+      <div class="grid" id="grid"></div>
+      <p class="empty" id="empty" hidden data-i18n="works.empty">Скоро здесь появятся работы.</p>
+    </section>
+
+    <!-- ============ Обо мне + 3D-кольцо инструментов ============ -->
+    <section class="studio" id="about" aria-labelledby="about-title">
+      <div class="container studio-grid">
+        <div class="studio-content">
+          <p class="kicker mono" data-reveal data-i18n="about.kicker">// Обо мне</p>
+          <h2 class="section-title" id="about-title" data-reveal data-i18n="about.title">Я делаю так, чтобы не пролистали</h2>
+          <p class="about-text" data-reveal data-i18n="about.text">Я Роман, монтажёр и моушн-дизайнер. Делаю ролики для Reels, TikTok и YouTube, в том числе для американского рынка. Моя задача — не просто красиво смонтировать, а удержать зрителя до конца и подвести его к действию: подписке, заявке, покупке.</p>
+
+          <ol class="process">
+            <li class="process-step" data-reveal>
+              <span class="process-time mono">00:00 — 00:03</span>
+              <h3 data-i18n="process.1.title">Хук</h3>
+              <p data-i18n="process.1.text">Первые 1–3 секунды цепляют и не дают пролистать.</p>
+            </li>
+            <li class="process-step" data-reveal>
+              <span class="process-time mono">00:03 — 00:50</span>
+              <h3 data-i18n="process.2.title">Удержание</h3>
+              <p data-i18n="process.2.text">Темп, субтитры, графика и звук держат внимание до последнего кадра.</p>
+            </li>
+            <li class="process-step" data-reveal>
+              <span class="process-time mono">00:50 — 01:00</span>
+              <h3 data-i18n="process.3.title">Действие</h3>
+              <p data-i18n="process.3.text">Ролик подводит зрителя к цели: подписка, заявка, покупка.</p>
+            </li>
+          </ol>
+
+          <!-- На мобильных кольцо встаёт здесь, между шагами и услугами -->
+          <div class="orbit-slot-mobile" id="orbit-slot-mobile"></div>
+
+          <p class="kicker mono" data-reveal data-i18n="services.kicker">// Что делаю</p>
+          <ul class="services">
+            <li class="service" data-reveal>
+              <span class="service-num mono">01</span>
+              <div>
+                <h3 data-i18n="services.1.title">Reels / TikTok / YouTube</h3>
+                <p data-i18n="services.1.text">Монтаж на удержание: динамика, анимированные субтитры, саунд-дизайн.</p>
+              </div>
+            </li>
+            <li class="service" data-reveal>
+              <span class="service-num mono">02</span>
+              <div>
+                <h3 data-i18n="services.2.title">2D и 3D-анимация</h3>
+                <p data-i18n="services.2.text">Моушн-графика, инфографика, 3D-вставки, которые объясняют и удерживают.</p>
+              </div>
+            </li>
+            <li class="service" data-reveal>
+              <span class="service-num mono">03</span>
+              <div>
+                <h3 data-i18n="services.3.title">ИИ-видео</h3>
+                <p data-i18n="services.3.text">Генерация роликов в Grok и Google Flow для американского YouTube, Reels и TikTok.</p>
+              </div>
+            </li>
+            <li class="service" data-reveal>
+              <span class="service-num mono">04</span>
+              <div>
+                <h3 data-i18n="services.4.title">Эдиты</h3>
+                <p data-i18n="services.4.text">Динамичные эдиты под музыку: спорт, лайфстайл, бренды.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Липкая колонка справа: кольцо крутится при прокрутке -->
+        <aside class="studio-aside" id="orbit-slot-desktop" aria-label="Инструменты">
+          <div class="orbit" id="orbit">
+            <p class="orbit-kicker mono" data-i18n="tools.kicker">// Инструменты</p>
+            <div class="orbit-stage" id="orbit-stage">
+              <div class="orbit-ring" id="orbit-ring"></div>
+              <div class="orbit-floor" aria-hidden="true"></div>
+            </div>
+            <div class="orbit-caption" aria-live="polite">
+              <span class="orbit-counter mono" id="orbit-counter">01 / 09</span>
+              <span class="orbit-name" id="orbit-name">After Effects</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============ Контакты ============ -->
+    <section class="contacts" id="contacts" aria-labelledby="contacts-title">
+      <div class="container">
+        <p class="kicker mono" data-reveal data-i18n="contacts.kicker">// Контакты</p>
+        <h2 class="contacts-title" id="contacts-title" data-reveal>
+          <span data-i18n="contacts.line1">Сделаем ролик,</span>
+          <span class="hero-accent" data-i18n="contacts.line2">который досмотрят?</span>
+        </h2>
+        <div class="contacts-row" data-reveal>
+          <p data-i18n="contacts.text">Напишите на Kwork — обсудим задачу, сроки и стоимость.</p>
+          <a class="btn btn-accent btn-large" href="https://kwork.ru/user/romanovit" target="_blank" rel="noopener">
+            <span data-i18n="contacts.cta">Написать на Kwork</span>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner mono">
+      <span>© 2026 ROMANOVIT</span>
+      <a href="https://kwork.ru/user/romanovit" target="_blank" rel="noopener">kwork.ru/user/romanovit ↗</a>
+    </div>
+  </footer>
+
+  <!-- ============ Лайтбокс ============ -->
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-labelledby="lb-title">
+    <button class="lb-btn lb-close" data-action="close" type="button" data-i18n-label="lb.close" aria-label="Закрыть">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <button class="lb-btn lb-prev" data-action="prev" type="button" data-i18n-label="lb.prev" aria-label="Предыдущее видео">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+    </button>
+    <figure class="lb-stage">
+      <video class="lb-video" id="lb-video" controls playsinline></video>
+      <figcaption class="lb-caption">
+        <span class="lb-title" id="lb-title"></span>
+        <span class="lb-meta mono" id="lb-meta"></span>
+      </figcaption>
+    </figure>
+    <button class="lb-btn lb-next" data-action="next" type="button" data-i18n-label="lb.next" aria-label="Следующее видео">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+    </button>
+  </div>
+
+  <script src="js/videos.js"></script>
+  <script src="js/logos.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
