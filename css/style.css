@@ -238,7 +238,7 @@ a { color: inherit; }
   margin-bottom: 18px;
 }
 .hero-title {
-  font: 900 clamp(44px, 8.2vw, 138px)/.88 var(--font-display);
+  font: 900 clamp(40px, 7vw, 122px)/.9 var(--font-display);
   text-transform: uppercase;
   letter-spacing: -.005em;
   display: flex;
