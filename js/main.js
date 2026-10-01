@@ -335,21 +335,58 @@
     }
   }, { rootMargin: '300px 0px' });
 
-  const player = new IntersectionObserver((entries) => {
-    for (const entry of entries) {
-      const video = entry.target;
-      if (entry.isIntersecting && lightbox.hidden) {
+  // Одновременно играет ограниченное число превью — самые видимые и ближе к центру экрана.
+  // Иначе телефон декодирует 6–8 видео разом и прокрутка начинает тормозить.
+  const maxPlaying = () => (window.matchMedia('(max-width: 900px)').matches ? 2 : 4);
+  const visibility = new Map(); // video → доля, видимая на экране
+  let pickScheduled = false;
+
+  function pickPlaying() {
+    pickScheduled = false;
+    if (!lightbox.hidden) return;
+    const mid = window.innerHeight / 2;
+    const ranked = [...visibility.entries()]
+      .filter(([, ratio]) => ratio >= 0.5)
+      .map(([video]) => {
+        const r = video.getBoundingClientRect();
+        return { video, dist: Math.abs(r.top + r.height / 2 - mid) };
+      })
+      .sort((a, b) => a.dist - b.dist)
+      .slice(0, maxPlaying())
+      .map((x) => x.video);
+    const keep = new Set(ranked);
+    grid.querySelectorAll('.tile-media').forEach((video) => {
+      if (keep.has(video)) {
         loadSrc(video);
-        video.play().catch(() => {});
-      } else {
+        if (video.paused) video.play().catch(() => {});
+      } else if (!video.paused) {
         video.pause();
       }
+    });
+  }
+  const schedulePick = () => {
+    if (!pickScheduled) { pickScheduled = true; requestAnimationFrame(pickPlaying); }
+  };
+
+  const player = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) visibility.set(entry.target, entry.intersectionRatio);
+      else visibility.delete(entry.target);
     }
-  }, { threshold: 0.4 });
+    schedulePick();
+  }, { threshold: [0, 0.5, 0.75, 1] });
+
+  // при прокрутке центр экрана сдвигается — пересматриваем, какие превью играют (не чаще раза в 200 мс)
+  let pickTimer = 0;
+  window.addEventListener('scroll', () => {
+    if (pickTimer) return;
+    pickTimer = setTimeout(() => { pickTimer = 0; schedulePick(); }, 200);
+  }, { passive: true });
 
   function observeTiles() {
     loader.disconnect();
     player.disconnect();
+    visibility.clear();
     grid.querySelectorAll('.tile-media').forEach((video) => {
       loader.observe(video);
       if (!reducedMotion) player.observe(video);
@@ -358,8 +395,7 @@
 
   const pauseGrid = () => grid.querySelectorAll('.tile-media').forEach((v) => v.pause());
   function resumeGrid() {
-    if (reducedMotion) return;
-    grid.querySelectorAll('.tile-media').forEach((v) => { player.unobserve(v); player.observe(v); });
+    if (!reducedMotion) schedulePick();
   }
 
   // =============== 3D-кольцо инструментов ===============
