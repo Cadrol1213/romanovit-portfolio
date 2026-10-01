@@ -1,17 +1,19 @@
 /* =========================================================
-   RomanovIT — графит, красный акцент «REC», без свечений
+   RomanovIT — графит #222223, красные #B62A2D / #D5575E, розовый #E6A8A8
    ========================================================= */
 :root {
-  --bg: #0F0F10;
-  --surface: #17171A;
-  --surface-2: #1F1F23;
-  --line: rgba(255, 255, 255, 0.09);
-  --line-strong: rgba(255, 255, 255, 0.2);
-  --fg: #F2F0EB;
-  --muted: #8C8A85;
-  --accent: #E8371E;
-  --on-accent: #FFFFFF;
-  --rec: #E8371E;
+  --bg: #222223;
+  --surface: #2A2A2C;
+  --surface-2: #323235;
+  --line: rgba(254, 254, 254, 0.1);
+  --line-strong: rgba(254, 254, 254, 0.22);
+  --fg: #FEFEFE;
+  --muted: #9C9A9C;
+  --accent: #B62A2D;        /* кнопки, ленты, активные фильтры */
+  --accent-text: #D5575E;   /* красный в тексте и линиях */
+  --accent-soft: #E6A8A8;   /* мелкие подписи, таймкоды */
+  --on-accent: #FEFEFE;
+  --rec: #D5575E;
 
   --font-display: 'Fira Sans Extra Condensed', 'Arial Narrow', sans-serif;
   --font-body: 'Onest', system-ui, sans-serif;
@@ -66,7 +68,7 @@ a { color: inherit; }
   padding-right: var(--gutter);
 }
 
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--accent-soft); outline-offset: 3px; }
 
 .skip-link {
   position: absolute;
@@ -130,7 +132,7 @@ a { color: inherit; }
   transition: background-color .3s, border-color .3s, backdrop-filter .3s;
 }
 .site-header.is-scrolled {
-  background: rgba(15, 15, 16, .85);
+  background: rgba(34, 34, 35, .88);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom-color: var(--line);
@@ -180,7 +182,7 @@ a { color: inherit; }
   right: 0;
   bottom: 0;
   height: 1px;
-  background: var(--accent);
+  background: var(--accent-text);
   transform: scaleX(0);
   transform-origin: right;
   transition: transform .35s var(--ease-out);
@@ -229,7 +231,7 @@ a { color: inherit; }
   font-size: 13px;
   letter-spacing: .08em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-soft);
   margin-bottom: 18px;
 }
 .hero-title {
@@ -242,10 +244,10 @@ a { color: inherit; }
 .hero-line { display: block; animation: rise 1s var(--ease-out) both; }
 .hero-line:nth-child(2) { animation-delay: .08s; }
 .hero-line:nth-child(3) { animation-delay: .16s; }
-.hero-accent { color: var(--accent); }
+.hero-accent { color: var(--accent-text); }
 @keyframes rise { from { opacity: 0; transform: translateY(40%); } }
 
-.hero-lead { max-width: 500px; margin-top: 28px; font-size: clamp(16px, 1.4vw, 19px); color: #C9C7C1; }
+.hero-lead { max-width: 500px; margin-top: 28px; font-size: clamp(16px, 1.4vw, 19px); color: #D6D4D6; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
 
 .hero-hint {
@@ -260,7 +262,7 @@ a { color: inherit; }
 }
 .hint-dots { display: flex; gap: 5px; }
 .hint-dots i { width: 18px; height: 3px; border-radius: 2px; background: var(--line-strong); transition: background-color .3s, width .3s; }
-.hint-dots i.is-on { width: 30px; background: var(--accent); }
+.hint-dots i.is-on { width: 30px; background: var(--accent-text); }
 
 /* сцена с телефоном */
 .phone-scene {
@@ -493,7 +495,7 @@ a { color: inherit; }
 .section-count {
   font-size: .2em;
   font-weight: 500;
-  color: var(--accent);
+  color: var(--accent-text);
   vertical-align: top;
   margin-left: .3em;
   position: relative;
@@ -503,7 +505,7 @@ a { color: inherit; }
   font-size: 13px;
   letter-spacing: .06em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-soft);
   margin-bottom: 16px;
 }
 
@@ -571,7 +573,7 @@ a { color: inherit; }
   pointer-events: none;
   transition: border-color .25s, border-width .25s;
 }
-.tile:hover::after { border: 2px solid var(--accent); }
+.tile:hover::after { border: 2px solid var(--accent-text); }
 
 .tile-media {
   display: block;
@@ -629,7 +631,7 @@ a { color: inherit; }
 .tile:hover .tile-info,
 .tile:focus-visible .tile-info { opacity: 1; transform: none; }
 .tile-title { display: block; font-weight: 600; font-size: 15px; line-height: 1.3; }
-.tile-meta { display: block; margin-top: 4px; font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--accent); }
+.tile-meta { display: block; margin-top: 4px; font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--accent-soft); }
 
 /* прогресс превью — как таймлайн в монтажке */
 .tile-progress {
@@ -638,7 +640,7 @@ a { color: inherit; }
   bottom: 0;
   height: 3px;
   width: 100%;
-  background: var(--accent);
+  background: var(--accent-text);
   transform: scaleX(var(--p, 0));
   transform-origin: left;
   transition: transform .25s linear;
@@ -665,7 +667,7 @@ a { color: inherit; }
   gap: clamp(32px, 5vw, 80px);
   align-items: start;
 }
-.about-text { margin-top: 28px; font-size: clamp(17px, 1.5vw, 20px); color: #C9C7C1; max-width: 620px; }
+.about-text { margin-top: 28px; font-size: clamp(17px, 1.5vw, 20px); color: #D6D4D6; max-width: 620px; }
 
 .process {
   list-style: none;
@@ -686,7 +688,7 @@ a { color: inherit; }
   top: 4px;
   width: 11px;
   height: 11px;
-  background: var(--accent);
+  background: var(--accent-text);
   transform: rotate(45deg);
 }
 .process-time { display: block; font-size: 12px; color: var(--muted); margin-bottom: 10px; letter-spacing: .04em; }
@@ -703,14 +705,14 @@ a { color: inherit; }
   transition: padding-left .4s var(--ease-out);
 }
 .service:hover { padding-left: 12px; }
-.service-num { font-size: 13px; color: var(--accent); padding-top: 8px; }
+.service-num { font-size: 13px; color: var(--accent-soft); padding-top: 8px; }
 .service h3 {
   font: 800 clamp(26px, 2.6vw, 34px)/1.05 var(--font-display);
   text-transform: uppercase;
   margin-bottom: 8px;
   transition: color .25s;
 }
-.service:hover h3 { color: var(--accent); }
+.service:hover h3 { color: var(--accent-text); }
 .service p { color: var(--muted); }
 
 /* липкая колонка */
@@ -726,7 +728,7 @@ a { color: inherit; }
   font-size: 13px;
   letter-spacing: .06em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-soft);
   text-align: center;
 }
 .orbit-stage {
@@ -795,12 +797,12 @@ a { color: inherit; }
   white-space: nowrap;
   transition: color .3s;
 }
-.orbit-item.is-front .app { transform: scale(1.12); box-shadow: 0 0 0 3px var(--accent), 0 18px 34px -12px rgba(0,0,0,.8); }
+.orbit-item.is-front .app { transform: scale(1.12); box-shadow: 0 0 0 3px var(--accent-text), 0 18px 34px -12px rgba(0,0,0,.8); }
 .orbit-item.is-front .orbit-label { color: var(--fg); }
 
 .orbit-caption { display: flex; flex-direction: column; align-items: center; gap: 6px; margin-top: 36px; }
 .orbit-counter { font-size: 12px; color: var(--muted); }
-.orbit-name { font: 900 clamp(40px, 4.4vw, 64px)/1 var(--font-display); text-transform: uppercase; color: var(--accent); }
+.orbit-name { font: 900 clamp(40px, 4.4vw, 64px)/1 var(--font-display); text-transform: uppercase; color: var(--accent-text); }
 
 .orbit-slot-mobile { display: none; }
 @media (max-width: 900px) {
@@ -831,7 +833,7 @@ a { color: inherit; }
   padding-top: 32px;
   border-top: 1px solid var(--line);
 }
-.contacts-row p { color: #C9C7C1; font-size: 18px; max-width: 460px; }
+.contacts-row p { color: #D6D4D6; font-size: 18px; max-width: 460px; }
 
 /* ---------- Футер ---------- */
 .site-footer { border-top: 1px solid var(--line); }
@@ -848,7 +850,7 @@ a { color: inherit; }
   letter-spacing: .04em;
 }
 .footer-inner a { text-decoration: none; }
-.footer-inner a:hover { color: var(--accent); }
+.footer-inner a:hover { color: var(--accent-soft); }
 
 /* ---------- Появление при прокрутке ---------- */
 [data-reveal] { opacity: 0; transform: translateY(32px); transition: opacity .8s var(--ease-out), transform .9s var(--ease-out); }
@@ -882,7 +884,7 @@ a { color: inherit; }
 @keyframes pop { from { transform: scale(.95); opacity: 0; } }
 .lb-caption { display: flex; flex-direction: column; align-items: center; gap: 4px; margin-top: 14px; text-align: center; }
 .lb-title { font-weight: 600; }
-.lb-meta { color: var(--accent); font-size: 12px; text-transform: uppercase; letter-spacing: .05em; }
+.lb-meta { color: var(--accent-soft); font-size: 12px; text-transform: uppercase; letter-spacing: .05em; }
 
 .lb-btn {
   position: absolute;
