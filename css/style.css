@@ -244,6 +244,7 @@ a { color: inherit; }
   display: flex;
   flex-direction: column;
 }
+.hero-title .eyebrow { display: block; font: 500 13px/1.4 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--accent-soft); margin-bottom: 18px; }
 .hero-line { display: block; animation: rise 1s var(--ease-out) both; }
 .hero-line:nth-child(2) { animation-delay: .08s; }
 .hero-line:nth-child(3) { animation-delay: .16s; }
@@ -832,6 +833,84 @@ a { color: inherit; }
   .orbit-slot-mobile { display: block; margin: 0 0 56px; }
   .orbit-stage { height: 280px; }
 }
+
+/* ---------- Цены ---------- */
+.prices { border-top: 1px solid var(--line); padding: clamp(80px, 10vw, 140px) 0; }
+.price-list {
+  list-style: none;
+  margin: clamp(32px, 4vw, 48px) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+}
+.price-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+  transition: border-color .4s ease;
+}
+.price-card:hover { border-color: var(--line-strong); }
+.price-card h3 { font: 800 clamp(24px, 2.2vw, 30px)/1.05 var(--font-display); text-transform: uppercase; }
+.price-desc { color: var(--muted); font-size: 15px; flex: 1; }
+.price-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.price { font: 900 clamp(28px, 2.6vw, 36px)/1 var(--font-display); color: var(--accent-text); }
+.price-time { font-size: 12px; color: var(--accent-soft); text-transform: uppercase; letter-spacing: .04em; }
+.price-note { margin-top: 20px; color: var(--muted); font-size: 15px; max-width: 640px; }
+@media (max-width: 1000px) { .price-list { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .price-list { grid-template-columns: 1fr; } }
+
+/* ---------- Частые вопросы ---------- */
+.faq { border-top: 1px solid var(--line); padding: clamp(80px, 10vw, 140px) 0; }
+.faq-grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 32px clamp(32px, 5vw, 80px); align-items: start; }
+.faq-list { border-top: 1px solid var(--line); }
+.faq-item { border-bottom: 1px solid var(--line); }
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 0;
+  font-weight: 600;
+  font-size: clamp(16px, 1.4vw, 19px);
+  cursor: pointer;
+  list-style: none;
+  transition: color .35s ease;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary:hover { color: var(--accent-soft); }
+.faq-plus { position: relative; flex: none; width: 18px; height: 18px; }
+.faq-plus::before, .faq-plus::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transition: transform .4s var(--ease-out);
+}
+.faq-plus::after { transform: rotate(90deg); }
+.faq-item[open] .faq-plus::after { transform: rotate(0); }
+.faq-item p { padding: 0 40px 22px 0; color: var(--muted); max-width: 640px; }
+@media (max-width: 760px) { .faq-grid { grid-template-columns: 1fr; } }
+
+/* статичный список работ — виден поисковикам и без JavaScript, потом заменяется сеткой */
+.works-static { list-style: none; margin: 0; padding: 0; columns: 2; gap: 32px; }
+.works-static li { break-inside: avoid; padding: 6px 0; color: var(--muted); }
+.works-static a { color: var(--fg); }
 
 /* ---------- Контакты ---------- */
 .contacts {

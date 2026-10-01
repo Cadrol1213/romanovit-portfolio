@@ -51,3 +51,11 @@ media/                готовые видео для сайта
 На хостинг загружаются всё, **кроме** `для сайта/`, `scripts/`, `content/`, `.claude/`.
 Бесплатно: Netlify (перетащить папку на app.netlify.com/drop) или Vercel.
 Если видео станет много — полные версии лучше перенести на Bunny Stream / Kinescope.
+
+## SEO
+
+- Тексты сайта (RU/EN), цены и вопросы — `js/i18n.js`. Цифры цен для микроразметки — `PRICE_RUB` в `scripts/build.mjs`.
+- После правок текстов или видео запустите `node scripts/build.mjs`: он впишет русские тексты и список работ прямо в `index.html`
+  (их видит поисковик без JavaScript), обновит микроразметку schema.org, `sitemap.xml` и `robots.txt`.
+- Адрес сайта — `SITE_URL` в `scripts/build.mjs` и в `<head>` файла `index.html` (canonical, og:url, og:image). Поменять при подключении домена.
+- Ссылки на соцсети для окна «Связаться» — `js/contacts.js`.
